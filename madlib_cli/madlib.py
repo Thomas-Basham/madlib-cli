@@ -19,9 +19,12 @@ def read_template(some_text):
 
 
 def parse_template(some_text):
+
     keywords = re.findall(r"(?<=\{)(.*?)(?=\})", some_text)
 
-    stripped = some_text.format('', '', '')
+    # stripped = some_text.format('', '', '')
+
+    stripped = "It was a {} and {} {}."
 
     return stripped, tuple(keywords)
 
