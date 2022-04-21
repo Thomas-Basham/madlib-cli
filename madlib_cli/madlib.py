@@ -19,10 +19,10 @@ def read_template(some_text):
 
 
 def parse_template(some_text):
-    empty = ('blah', "blah",' blah')
-    stripped = some_text.format(*empty, '')
     keywords = re.findall(r"(?<=\{)(.*?)(?=\})", some_text)
-    print(stripped)
+
+    stripped = some_text.format('', '', '')
+
     return stripped, tuple(keywords)
 
 
