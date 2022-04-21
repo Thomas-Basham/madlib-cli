@@ -33,4 +33,4 @@ def merge(some_text, tup):
 welcome_message()
 read_template("example.txt")
 parse_template("example.txt")
-# merge("example.txt", tup)
+merge("example.txt", ("words", "words", "words"))
