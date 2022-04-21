@@ -22,9 +22,7 @@ def parse_template(some_text):
 
     keywords = re.findall(r"(?<=\{)(.*?)(?=\})", some_text)
 
-    # stripped = some_text.format('', '', '')
-
-    stripped = "It was a {} and {} {}."
+    stripped = re.sub(r"(?<=\{)(.*?)(?=\})", '', some_text)
 
     return stripped, tuple(keywords)
 
