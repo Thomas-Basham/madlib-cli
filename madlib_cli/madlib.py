@@ -9,9 +9,6 @@ def welcome_message():
     """)
 
 
-word_bank = ()
-
-
 def read_template(some_text):
     try:
         with open(some_text, "r") as file:
@@ -22,25 +19,18 @@ def read_template(some_text):
 
 
 def parse_template(some_text):
-    stripped = ""
-    keywords = re.findall(r"(?<=\{)(.*?)(?=\})", read_text)
-    keywords_tuple = tuple(set(keywords))
-    print(keywords_tuple
-    return stripped, keywords
+    empty = ('blah', "blah",' blah')
+    stripped = some_text.format(*empty, '')
+    keywords = re.findall(r"(?<=\{)(.*?)(?=\})", some_text)
+    print(stripped)
+    return stripped, tuple(keywords)
 
-def merge():
-    text = open(f"{some_text}", 'r')
-    read_text = text.read()
-    try:
-        for i in keywords:
-            user_input = input(f"{i}: ")
-        print(f"{read_text.format(Adjective = user_input, Noun = user_input)}")
 
-    finally:
-        text.close()
+def merge(some_text, tup):
+    return some_text.format(*tup)
 
 
 welcome_message()
 read_template("example.txt")
 parse_template("example.txt")
-# merge("example.txt")
+# merge("example.txt", tup)
