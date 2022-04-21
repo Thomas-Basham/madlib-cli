@@ -1,3 +1,5 @@
+import re
+
 
 def welcome_message():
     print("""
@@ -7,33 +9,38 @@ def welcome_message():
     """)
 
 
-def read_template():
+word_bank = ()
 
-    template = open('example.txt')
+
+def read_template(some_text):
     try:
-        print(template.read())
+        with open(some_text, "r") as file:
+            read_text = file.read()
+            return read_text
+    except FileNotFoundError:
+        raise FileNotFoundError
 
-    finally:
 
-        template.close()
-        print('Reader closed')
-
-
-def parse_template():
-    template = open('example.txt')
-    try:
-        user_input = input('> ')
-
-        print("TODO: Parse template function")
-    finally:
-
-        template.close()
-
+def parse_template(some_text):
+    stripped = ""
+    keywords = re.findall(r"(?<=\{)(.*?)(?=\})", read_text)
+    keywords_tuple = tuple(set(keywords))
+    print(keywords_tuple
+    return stripped, keywords
 
 def merge():
-    print("TODO: Merge Function")
+    text = open(f"{some_text}", 'r')
+    read_text = text.read()
+    try:
+        for i in keywords:
+            user_input = input(f"{i}: ")
+        print(f"{read_text.format(Adjective = user_input, Noun = user_input)}")
+
+    finally:
+        text.close()
 
 
 welcome_message()
-read_template()
-parse_template()
+read_template("example.txt")
+parse_template("example.txt")
+# merge("example.txt")

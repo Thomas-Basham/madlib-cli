@@ -3,13 +3,13 @@ from madlib_cli.madlib import read_template, parse_template, merge
 
 
 def test_read_template_returns_stripped_string():
-    actual = read_template("assets/dark_and_stormy_night_template.txt")
+    actual = read_template("example.txt")
     expected = "It was a {Adjective} and {Adjective} {Noun}."
     assert actual == expected
 
 
 @pytest.mark.skip("pending")
-def test_parse_template():cl
+def test_parse_template():
     actual_stripped, actual_parts = parse_template(
         "It was a {Adjective} and {Adjective} {Noun}."
     )
@@ -18,7 +18,6 @@ def test_parse_template():cl
 
     assert actual_stripped == expected_stripped
     assert actual_parts == expected_parts
-
 
 @pytest.mark.skip("pending")
 def test_merge():
